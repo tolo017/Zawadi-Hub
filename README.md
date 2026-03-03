@@ -1,4 +1,4 @@
-# LoyalSense - AI-Powered Customer Loyalty Platform
+# Zawadi-Hub - AI-Powered Customer Loyalty Platform
 
 🚀 **Hackathon Winning Solution** for Retail & Consumer Services
 
