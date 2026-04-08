@@ -1,6 +1,6 @@
 # Zawadi-Hub - AI-Powered Customer Loyalty Platform
 
-🚀 **Hackathon Winning Solution** for Retail & Consumer Services
+ For Retail & Consumer Services
 
 ## 🏆 Unique Selling Points
 
