@@ -15,6 +15,6 @@ Built for an investor pitch, it showcases:
 ## Quick Start (with Docker)
 
 ```bash
-git clone <repo-url> flavorprint-loyalty
-cd flavorprint-loyalty
+git clone https://github.com/tolo017/Zawadi-Hub.git
+cd runas-zawadihub
 docker-compose up --build
