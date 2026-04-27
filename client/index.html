@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Runas Zawadihub – FlavorPrint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Auth screen -->
+  <div id="auth-container" class="auth-screen">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="logo-icon">🍹</div>
+        <h1>Runas Zawadihub</h1>
+        <p class="tagline">FlavorPrint Loyalty</p>
+      </div>
+      <div id="login-form" class="auth-form">
+        <h2>Welcome back</h2>
+        <form id="login-form-element">
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="login-email" required placeholder="mango@example.com" />
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="login-password" required placeholder="••••••••" />
+          </div>
+          <p id="login-error" class="error-msg hidden"></p>
+          <button type="submit" class="btn-primary full-width">Sign In</button>
+        </form>
+        <p class="switch-text">Don't have an account? <button id="show-register-btn" class="link-btn">Create one</button></p>
+      </div>
+      <div id="register-form" class="auth-form hidden">
+        <h2>Create account</h2>
+        <form id="register-form-element">
+          <div class="input-group">
+            <label>Name</label>
+            <input type="text" id="reg-name" required placeholder="Your name" />
+          </div>
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="reg-email" required placeholder="you@example.com" />
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="reg-password" required placeholder="••••••••" minlength="6" />
+          </div>
+          <p id="register-error" class="error-msg hidden"></p>
+          <button type="submit" class="btn-primary full-width">Join Now</button>
+        </form>
+        <p class="switch-text">Already a member? <button id="show-login-btn" class="link-btn">Sign in</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard (hidden until login) -->
+  <div id="dashboard-container" class="hidden">
+    <!-- Top nav -->
+    <header class="top-nav">
+      <div class="nav-brand">
+        <span class="logo-icon">🍹</span>
+        <span class="brand-name">Runas Zawadihub</span>
+      </div>
+      <div class="nav-user">
+        <span id="user-name-display" class="user-name"></span>
+        <button id="logout-btn" class="btn-outline">Logout</button>
+      </div>
+    </header>
+
+    <main class="dashboard-main">
+      <!-- Top row: Points + Tier -->
+      <section class="dashboard-grid top-row">
+        <div id="points-card" class="card points-card animate-fade-in"></div>
+        <div id="tier-badge" class="card tier-card animate-fade-in"></div>
+      </section>
+
+      <!-- Transactions + Reward -->
+      <section class="dashboard-grid mid-row">
+        <div id="transactions-list" class="card animate-fade-in"></div>
+        <div id="reward-card" class="card reward-card animate-fade-in"></div>
+      </section>
+
+      <!-- Menu & Order -->
+      <section id="menu-order" class="card menu-order-card animate-fade-in"></section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: runas
+      POSTGRES_PASSWORD: runas123
+      POSTGRES_DB: runas_loyalty
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U runas -d runas_loyalty"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  server:
+    build: ./server
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://runas:runas123@db:5432/runas_loyalty
+      SECRET_KEY: super-secret-jwt-key-change-me
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./server:/app
+      - ./client:/client   # <-- this must exist
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
