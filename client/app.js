@@ -88,13 +88,26 @@ el('register-form-element').addEventListener('submit', async (e) => {
   }
 });
 
-// Logout
-el('logout-btn').addEventListener('click', () => {
-  localStorage.removeItem('token');
-  token = null;
-  customer = null;
-  cart = {};
-  showAuth();
+// ---------- Delegated global click handler ----------
+document.addEventListener('click', (e) => {
+  // Logout
+  if (e.target.id === 'logout-btn') {
+    localStorage.removeItem('token');
+    token = null;
+    customer = null;
+    for (const key of Object.keys(cart)) delete cart[key];
+    showAuth();
+  }
+  // Toggle to register form
+  if (e.target.id === 'show-register-btn') {
+    el('login-form').classList.add('hidden');
+    el('register-form').classList.remove('hidden');
+  }
+  // Toggle to login form
+  if (e.target.id === 'show-login-btn') {
+    el('register-form').classList.add('hidden');
+    el('login-form').classList.remove('hidden');
+  }
 });
 
 // ---------- User & Data ----------
